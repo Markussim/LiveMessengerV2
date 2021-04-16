@@ -18,4 +18,4 @@ todo
 
 
 ## License
-Distributed under the MIT Licenese. See ['LICENSE.md'](LICENSE.md) for more information
+Distributed under the MIT Licenese. See [LICENSE](LICENSE) for more information
