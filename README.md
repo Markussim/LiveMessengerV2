@@ -1,6 +1,6 @@
 # LiveMessenger v2
 
-NOW IN C#!
+LiveMessenger V2 now with backend in C# and slightly modified frontend
 
 ## Vad det ska bli
 todo
