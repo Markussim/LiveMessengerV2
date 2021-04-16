@@ -10,8 +10,11 @@ LiveMessenger V2 now with backend in C# and slightly modified frontend!
 ## Klassdiagram
 todo
 
-## GUI Mockup
-todo
+## Designplan
+### Wireframes
+- [Startsida](https://wireframe.cc/sFulMJ)
+- [Chatsida](https://wireframe.cc/xTwg1A)
+- [Användarnamn Popup](https://wireframe.cc/WiH3qk)
 
 ## Planering / Ordning
 todo
