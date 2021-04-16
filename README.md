@@ -5,7 +5,7 @@ LiveMessenger V2 now with backend in C# and slightly modified frontend!
 
 
 ## Händelseförlopp
-Pseudokod eller flödeschema
+<a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/flowchart.png" title="Flowchart"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/flowchart.png" alt="flowchart" /></a>
 
 ## Klassdiagram
 todo
