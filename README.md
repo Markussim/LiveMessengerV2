@@ -1,9 +1,8 @@
 # LiveMessenger v2
 
-LiveMessenger V2 now with backend in C# and slightly modified frontend
+LiveMessenger V2 now with backend in C# and slightly modified frontend!
 
-## Vad det ska bli
-todo
+
 
 ## Händelseförlopp
 Pseudokod eller flödeschema
@@ -16,3 +15,7 @@ todo
 
 ## Planering / Ordning
 todo
+
+
+## License
+Distributed under the MIT Licenese. See ['LICENSE.md'](LICENSE.md) for more information
