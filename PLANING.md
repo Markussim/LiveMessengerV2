@@ -20,4 +20,8 @@
 
 
 ## Planering / Ordning
-todo
+1. Mongo
+2. Skapa rum
+3. WebSocket
+4. Chat
+5. Användarnamns byte
