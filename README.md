@@ -3,7 +3,7 @@ Slutprojekt i Programmering 2 för [Linus Romland](https://github.com/linusromla
 
 LiveMessenger V2 med backend i C#!
 
-Se [Planing](PLANING.md)
+Se [`PLANERING`](PLANING.md)
 
 ## License
 Distribueras under MIT-licensen. Se [`LICENSE`](LICENSE) för mer information. 
