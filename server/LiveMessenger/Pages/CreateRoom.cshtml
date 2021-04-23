@@ -1,0 +1,46 @@
+﻿@page
+@model LiveMessenger.Pages.CreateRoomModel
+@{
+}
+
+<section class="container-fluid">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-3">
+            <form id="theForm" class="form-container">
+                <div class="form-group">
+                    <h4 class="text-center font-weight-bold">Skapa ett rum</h4>
+                    <label for="rumsnamn">Rumsnamn</label>
+                    <input class="form-control"
+                           type="text"
+                           placeholder="rumsnamn"
+                           class="fadeIn second"
+                           id="rumsnamn"
+                           name="rumsnamn" />
+                </div>
+                <div class="form-group">
+                    <label for="description">Beskriving</label>
+                    <input class="form-control"
+                           class="fadeIn third"
+                           type="text"
+                           placeholder="description"
+                           name="description"
+                           id="description" />
+                </div>
+  
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control"
+                           type="password"
+                           placeholder="Password"
+                           class="fadeIn third"
+                           id="password"
+                           name="password" />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Skapa ett rum
+                </button>
+            </form>
+        </section>
+    </section>
+</section>
