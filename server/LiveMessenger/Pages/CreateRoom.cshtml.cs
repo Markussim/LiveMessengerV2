@@ -10,7 +10,7 @@ namespace LiveMessenger.Pages
     public class CreateRoomModel : PageModel
     {
         public void OnGet()
-        {
+        {//less go
         }
     }
 }
