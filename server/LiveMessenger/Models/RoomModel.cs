@@ -5,10 +5,8 @@ using System.Collections.Generic;
 
 namespace LiveMessenger
 {
-    abstract class RoomModel
+    public abstract class RoomModel
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
 
         [BsonElement("RoomModel")]
         public string Name { get; set; }

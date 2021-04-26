@@ -8,7 +8,6 @@ namespace LiveMessenger
     public class MessageModel
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
 
         [BsonElement("MessageModel")]
         public string User { get; set; }
