@@ -1,4 +1,7 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using System;
 
 namespace LiveMessenger
 {
@@ -12,11 +15,14 @@ namespace LiveMessenger
 
         public string Message { get; set; }
 
-        public DateTime Date { get, set;}
+        public DateTime Date { get; set; }
 
-        public MessageModel createMessage(string userIN, string messageIN){
+        public MessageModel CreateMessage(string userIN, string messageIN)
+        {
+            MessageModel tmp = new MessageModel();
             User = userIN;
             Message = messageIN;
+            return tmp;
         }
     }
 }
