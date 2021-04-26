@@ -1,8 +1,11 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using System.Collections.Generic;
 
 namespace LiveMessenger
 {
-    public class RoomModel
+    abstract class RoomModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -14,8 +17,6 @@ namespace LiveMessenger
 
         public List<MessageModel> Messages { get; set; }
 
-        abstract createRoom(){
-
-        }
+        public abstract void CreateRoom();
     }
 }
