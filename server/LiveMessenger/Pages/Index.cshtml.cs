@@ -12,14 +12,8 @@ namespace LiveMessenger.Pages
     {
         public IActionResult OnGet()
         {
-            if (Request.Cookies["username"] == null)
-            {
-                return Redirect("ChangeUsername");
-            }
-            else
-            {
-                return null;
-            }
+            if (checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
+            return null;
         }
     }
 }
