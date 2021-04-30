@@ -7,8 +7,6 @@ namespace LiveMessenger
 {
     public abstract class RoomModel
     {
-
-        [BsonElement("RoomModel")]
         public string Name { get; set; }
 
         public string Description { get; set; }
