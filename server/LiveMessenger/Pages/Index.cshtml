@@ -1,4 +1,5 @@
 ﻿@page
+@using LiveMessenger.Pages
 @model IndexModel
 @{
     ViewData["Title"] = "Hem";
@@ -6,5 +7,9 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <a href="/createRoom">CLICK HERE BRE</a>
+
+    @foreach (var room in @Model.Rooms)
+    {
+        <a href="/Chat?id=@room.GetElement("_id").Value">@room.GetElement("Name").Value</a>
+    }
 </div>
