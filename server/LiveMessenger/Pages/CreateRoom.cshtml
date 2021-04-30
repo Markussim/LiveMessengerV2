@@ -7,17 +7,17 @@
 <section class="container-fluid">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
-            <form id="theForm" class="form-container">
+            <form id="theForm" method="POST" class="form-container">
                 <div class="form-group">
                     <h4 class="text-center font-weight-bold">Skapa ett rum</h4>
                     <label for="roomName">Rumsnamn</label>
                     <input class="form-control" type="text" placeholder="Rumsnamn" class="fadeIn second" id="roomName"
-                        name="roomName" />
+                        name="roomName" required />
                 </div>
                 <div class="form-group">
                     <label for="description">Beskriving</label>
                     <input class="form-control" class="fadeIn third" type="text" placeholder="Beskrivning"
-                        name="description" id="description" />
+                        name="description" id="description" required/>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" onclick="privateRoom()" class="form-check-input" id="privateRoomCheck">
@@ -26,7 +26,7 @@
                 <div class="form-group" id="private" hidden>
                     <label for="password">Lösenord</label>
                     <input class="form-control" type="password" placeholder="Lösenord" class="fadeIn third"
-                        id="password" name="password" />
+                        id="password" name="password"/>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block">

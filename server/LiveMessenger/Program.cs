@@ -14,7 +14,6 @@ namespace LiveMessenger
         public static void Main(string[] args)
         {
             connectToDB.connectToMongo();
-            new PublicRoomModel("name", "desc").CreateRoom();
             CreateHostBuilder(args).Build().Run();
         }
 
