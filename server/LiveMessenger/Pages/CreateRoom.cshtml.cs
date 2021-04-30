@@ -9,12 +9,12 @@ using LiveMessenger;
 namespace LiveMessenger.Pages
 {
     public class CreateRoomModel : PageModel
-    {
+    { 
         public void OnGet()
         {
         }
         public void OnPost(string roomName, string description, string password)
-        {
+        { 
             if (password != null)
             {
                 System.Console.WriteLine("New private room \"" + roomName + "\" created!");

@@ -10,9 +10,16 @@ namespace LiveMessenger.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            if (Request.Cookies["username"] == null)
+            {
+                return Redirect("ChangeUsername");
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
