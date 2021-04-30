@@ -12,12 +12,12 @@ namespace LiveMessenger.Pages
     {
         public IActionResult OnGet()
         {
-            if (checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
+            if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             return null;
         }
         public IActionResult OnPost(string roomName, string description, string password)
         {
-            if (checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
+            if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
 
             if (password != null)
             {
