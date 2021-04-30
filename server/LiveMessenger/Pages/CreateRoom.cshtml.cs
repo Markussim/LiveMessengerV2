@@ -9,22 +9,39 @@ using LiveMessenger;
 namespace LiveMessenger.Pages
 {
     public class CreateRoomModel : PageModel
-    { 
-        public void OnGet()
+    {
+        public IActionResult OnGet()
         {
-        }
-        public void OnPost(string roomName, string description, string password)
-        { 
-            if (password != null)
+            if (Request.Cookies["username"] == null)
             {
-                System.Console.WriteLine("New private room \"" + roomName + "\" created!");
-                new PrivateRoomModel(roomName, description, password).CreateRoom();
+                return Redirect("ChangeUsername");
             }
             else
             {
-                System.Console.WriteLine("New room \"" + roomName + "\" created!");
-                new PublicRoomModel(roomName, description).CreateRoom();
+                return null;
             }
+        }
+        public IActionResult OnPost(string roomName, string description, string password)
+        {
+            if (Request.Cookies["username"] == null)
+            {
+                return Redirect("ChangeUsername");
+            }
+            else
+            {
+                if (password != null)
+                {
+                    System.Console.WriteLine("New private room \"" + roomName + "\" created!");
+                    new PrivateRoomModel(roomName, description, password).CreateRoom();
+                }
+                else
+                {
+                    System.Console.WriteLine("New room \"" + roomName + "\" created!");
+                    new PublicRoomModel(roomName, description).CreateRoom();
+                }
+                return Redirect("/");
+            }
+
         }
     }
 }
