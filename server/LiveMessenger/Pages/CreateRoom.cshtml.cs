@@ -17,24 +17,20 @@ namespace LiveMessenger.Pages
         }
         public IActionResult OnPost(string roomName, string description, string password)
         {
-            if (Request.Cookies["username"] == null)
+            if (checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
+
+            if (password != null)
             {
-                return Redirect("ChangeUsername");
+                System.Console.WriteLine("New private room \"" + roomName + "\" created!");
+                new PrivateRoomModel(roomName, description, password).CreateRoom();
             }
             else
             {
-                if (password != null)
-                {
-                    System.Console.WriteLine("New private room \"" + roomName + "\" created!");
-                    new PrivateRoomModel(roomName, description, password).CreateRoom();
-                }
-                else
-                {
-                    System.Console.WriteLine("New room \"" + roomName + "\" created!");
-                    new PublicRoomModel(roomName, description).CreateRoom();
-                }
-                return Redirect("/");
+                System.Console.WriteLine("New room \"" + roomName + "\" created!");
+                new PublicRoomModel(roomName, description).CreateRoom();
             }
+            return Redirect("/");
+
 
         }
     }
