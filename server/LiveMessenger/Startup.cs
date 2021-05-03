@@ -9,12 +9,16 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Net.WebSockets;
-
+using System.Collections.Generic;
 
 namespace LiveMessenger
 {
     public class Startup
     {
+
+        private List<Room> rooms = new List<Room>();
+        public Room room = new Room("tjobre");
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -61,8 +65,8 @@ namespace LiveMessenger
                         {
                             using (var webSocket = await context.WebSockets.AcceptWebSocketAsync())
                             {
-                                WSConnection tjo = new WSConnection(webSocket, context);
-
+                                ClientConnection tjo = new ClientConnection(webSocket, context, room);
+                                room.Subscribe(tjo);
                                 await tjo.Startup();
                             }
                         }

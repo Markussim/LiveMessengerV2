@@ -12,7 +12,7 @@ using System.Net.WebSockets;
 
 namespace LiveMessenger
 {
-    public class WSConnection
+    public class ClientConnection
     {
         private byte[] buffer = new byte[1024 * 4];
 
@@ -22,14 +22,17 @@ namespace LiveMessenger
 
         private HttpContext context { get; set; }
 
-        public WSConnection(WebSocket webSocketIN, HttpContext contextIN)
+        private Room room { get; set; }
+
+        public ClientConnection(WebSocket webSocketIN, HttpContext contextIN, Room roomIN)
         {
             webSocket = webSocketIN;
             context = contextIN;
+            room = roomIN;
         }
         public async Task Startup()
         {
-
+            //NEEDS TO SEND SOME FKN INIT THINGYHERE
             result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             await receiveMessage();
             await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
@@ -40,13 +43,14 @@ namespace LiveMessenger
             while (!result.CloseStatus.HasValue)
             {
                 System.Console.WriteLine(System.Text.Encoding.UTF8.GetString(buffer)); //prints message
-                await sendMessage(buffer);
+                room.Notify(buffer);
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
         }
 
         public async Task sendMessage(Byte[] message) 
         {
+            System.Console.WriteLine("new message to send bre");
             await webSocket.SendAsync(new ArraySegment<byte>(message, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
         }
 
