@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using System.Net.WebSockets;
+
 
 namespace LiveMessenger
 {
@@ -43,10 +45,35 @@ namespace LiveMessenger
 
             app.UseAuthorization();
 
+            app.UseWebSockets();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
             });
+
+            app.Use(async (context, next) =>
+                {
+                    if (context.Request.Path == "/ws")
+                    {
+                        if (context.WebSockets.IsWebSocketRequest)
+                        {
+                            using (var webSocket = await context.WebSockets.AcceptWebSocketAsync())
+                            {
+                                await WSConnection.Echo(context, webSocket);
+                            }
+                        }
+                        else
+                        {
+                            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        }
+                    }
+                    else
+                    {
+                        await next();
+                    }
+
+                });
         }
     }
 }
