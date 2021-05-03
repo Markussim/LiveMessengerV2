@@ -13,12 +13,15 @@ namespace LiveMessenger.Pages
     public class IndexModel : PageModel
     {
         public List<BsonDocument> Rooms { get; set; }
+
+        public string Username { get; set; }
         public IActionResult OnGet()
         {
             if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
-
+            Username = Request.Cookies["username"];
             Rooms = GetRooms.RetrieveRooms();
             return null;
         }
     }
 }
+    
