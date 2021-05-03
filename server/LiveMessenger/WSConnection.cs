@@ -14,18 +14,40 @@ namespace LiveMessenger
 {
     public class WSConnection
     {
-        public static async Task Echo(HttpContext context, WebSocket webSocket)
+        private byte[] buffer = new byte[1024 * 4];
+
+        private WebSocketReceiveResult result { get; set; }
+
+        private WebSocket webSocket { get; set; }
+
+        private HttpContext context { get; set; }
+
+        public WSConnection(WebSocket webSocketIN, HttpContext contextIN)
         {
-            var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            webSocket = webSocketIN;
+            context = contextIN;
+        }
+        public async Task Startup()
+        {
+
+            result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            await receiveMessage();
+            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+        }
+
+        public async Task receiveMessage()
+        {
             while (!result.CloseStatus.HasValue)
             {
                 System.Console.WriteLine(System.Text.Encoding.UTF8.GetString(buffer)); //prints message
-                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
-
+                await sendMessage(buffer);
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+        }
+
+        public async Task sendMessage(Byte[] message) 
+        {
+            await webSocket.SendAsync(new ArraySegment<byte>(message, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
         }
 
     }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Net.WebSockets;
 
@@ -60,7 +61,9 @@ namespace LiveMessenger
                         {
                             using (var webSocket = await context.WebSockets.AcceptWebSocketAsync())
                             {
-                                await WSConnection.Echo(context, webSocket);
+                                WSConnection tjo = new WSConnection(webSocket, context);
+
+                                await tjo.Startup();
                             }
                         }
                         else
@@ -75,5 +78,6 @@ namespace LiveMessenger
 
                 });
         }
+
     }
 }
