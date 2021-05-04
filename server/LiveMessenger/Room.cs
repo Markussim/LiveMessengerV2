@@ -21,8 +21,6 @@ namespace LiveMessenger
         public void Subscribe(ClientConnection client)
         {
             clients.Add(client);
-            System.Console.WriteLine(("new client bre"));
-            System.Console.WriteLine(clients.Count);
         }
 
         public void Notify(Byte[] message)
