@@ -25,10 +25,7 @@ namespace LiveMessenger
 
         public void Notify(Byte[] message)
         {
-            foreach (ClientConnection client in clients)
-            {
-                client.sendMessage(message);
-            }
+            clients.ForEach(client => client.sendMessage(message));
         }
     }
 }
