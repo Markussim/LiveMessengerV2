@@ -14,6 +14,7 @@ namespace LiveMessenger.Pages
         {
             if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             String id = Request.Query["id"];
+            if (!checkRoom.byID(id)) return Redirect("/");
             return null;
         }
         public void OnPost()

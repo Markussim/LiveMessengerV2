@@ -1,0 +1,37 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using System.Net;
+
+namespace LiveMessenger
+{
+    public class checkRoom
+    {
+        public static bool byID(string id)
+        {
+            try
+            {
+                bool validRoom = true;
+                var collection = connectToDB.db.GetCollection<BsonDocument>("Rooms");
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(id));
+                var document = collection.Find(filter).FirstOrDefault();
+                if (document == null) validRoom = false;
+                return validRoom;
+            }
+            catch (System.Exception)
+            {
+
+                return false;
+            }
+        }
+    }
+}
