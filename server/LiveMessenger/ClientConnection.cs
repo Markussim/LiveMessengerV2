@@ -49,7 +49,7 @@ namespace LiveMessenger
 
         public async Task sendMessage(Byte[] message) 
         {
-            await webSocket.SendAsync(new ArraySegment<byte>(message, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+           await webSocket.SendAsync(new ArraySegment<byte>(message, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
         }
 
     }
