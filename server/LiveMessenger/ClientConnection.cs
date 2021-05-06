@@ -22,7 +22,7 @@ namespace LiveMessenger
 
         private HttpContext context { get; set; }
 
-        private Room room { get; set; }
+        public Room room { get; set; }
 
         public ClientConnection(WebSocket webSocketIN, HttpContext contextIN, Room roomIN)
         {
@@ -41,15 +41,16 @@ namespace LiveMessenger
         {
             while (!result.CloseStatus.HasValue)
             {
-                System.Console.WriteLine(System.Text.Encoding.UTF8.GetString(buffer)); //prints message
                 room.Notify(buffer);
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
         }
 
-        public async Task sendMessage(Byte[] message) 
+        public async Task sendMessage(Byte[] messageByte) 
         {
-           await webSocket.SendAsync(new ArraySegment<byte>(message, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+            MessageModel message = new MessageModel("user", System.Text.Encoding.UTF8.GetString(messageByte), room.roomID);
+            message.SaveMessage();
+            await webSocket.SendAsync(new ArraySegment<byte>(messageByte, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
         }
 
     }

@@ -18,6 +18,7 @@ namespace LiveMessenger
             roomID = roomIDIN;
         }
         private List<ClientConnection> clients = new List<ClientConnection>();
+
         public void Subscribe(ClientConnection client)
         {
             clients.Add(client);
