@@ -41,15 +41,13 @@ namespace LiveMessenger
         {
             while (!result.CloseStatus.HasValue)
             {
-                room.Notify(buffer);
+                room.Notify(buffer, room);
                 result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             }
         }
 
         public async Task sendMessage(Byte[] messageByte) 
         {
-            MessageModel message = new MessageModel("user", System.Text.Encoding.UTF8.GetString(messageByte), room.roomID);
-            message.SaveMessage();
             await webSocket.SendAsync(new ArraySegment<byte>(messageByte, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
         }
 
