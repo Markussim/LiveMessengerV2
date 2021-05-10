@@ -5,4 +5,9 @@
 }
 
 <h1>Cool Chat room</h1>
+
+@foreach (var message in @Model.previousMessages)
+    {<li>@message.GetElement("Message").Value</li>}
+
 <script src="~/js/chat.js" asp-append-version="true"></script>
+

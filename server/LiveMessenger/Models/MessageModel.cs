@@ -21,7 +21,6 @@ namespace LiveMessenger
             Message = MessageIN;
             Room = RoomIN;
             Date = DateTime.Now;
-            System.Console.WriteLine(User + " " + Message + " " + Room + " " + Date);
         }
 
         public void SaveMessage()

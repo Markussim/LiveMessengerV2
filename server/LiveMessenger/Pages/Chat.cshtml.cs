@@ -13,13 +13,13 @@ namespace LiveMessenger.Pages
 {
     public class ChatModel : PageModel
     {
+        public List<BsonDocument> previousMessages { get; set; }
         public IActionResult OnGet()
         {
             if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             String id = Request.Query["id"];
             if (!checkRoom.byID(id)) return Redirect("/");
-            List<BsonDocument> previousMessages = GetPreviousMessages.RetrievePreviousMessages(id);
-            previousMessages.ForEach(x => System.Console.WriteLine(x.GetElement("Message").Value));
+            previousMessages = GetPreviousMessages.RetrievePreviousMessages(id);
             return null;
         }
         public void OnPost()
