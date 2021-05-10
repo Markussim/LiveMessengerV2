@@ -13,8 +13,7 @@ using System.Net.WebSockets;
 namespace LiveMessenger
 {
     public class ClientConnection
-    {
-        private byte[] buffer = new byte[1024 * 1024];
+    { 
 
         private WebSocketReceiveResult result { get; set; }
 
@@ -32,6 +31,7 @@ namespace LiveMessenger
         }
         public async Task Startup()
         {
+            byte[] buffer = new byte[1024 * 1024];
             result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
             await receiveMessage();
             await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
@@ -39,6 +39,7 @@ namespace LiveMessenger
 
         public async Task receiveMessage()
         {
+            byte[] buffer = new byte[1024 * 1024];
             while (!result.CloseStatus.HasValue)
             {
                 room.Notify(buffer, room);

@@ -11,3 +11,9 @@ socket.onopen = function (event) {
 socket.onmessage = function (event) {
     console.log(event.data)
 };
+
+function sendMessage(){
+    let message = document.getElementById("message").value
+    console.log(message)
+    socket.send(message)
+}
