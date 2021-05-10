@@ -26,7 +26,7 @@ namespace LiveMessenger
 
         public void Notify(Byte[] messageByte, Room room)
         {
-            //messageByte = removeTrailingNulls(messageByte);
+            messageByte = removeTrailingNulls(messageByte);
             if (System.Text.Encoding.UTF8.GetString(messageByte) != "")
             {
                 MessageModel message = new MessageModel("user", System.Text.Encoding.UTF8.GetString(messageByte).Trim(), room.roomID);

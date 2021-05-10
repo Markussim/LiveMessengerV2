@@ -46,7 +46,7 @@ namespace LiveMessenger
 
             app.UseRouting();
 
-            app.UseAuthorization();
+          //  app.UseAuthorization();
 
             app.UseWebSockets();
 
