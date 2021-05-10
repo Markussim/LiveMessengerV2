@@ -3,18 +3,11 @@
 @{
     ViewData["Title"] = "Chatt";
 }
-<script src="~/js/chat.js" defer></script>
 
 <h1>Cool Chat room</h1>
 
 @foreach (var message in @Model.previousMessages)
-{
-    <p><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value (Sent
-    @message.GetElement("Date").Value)</p>
-}
+    {<li>@message.GetElement("Message").Value</li>}
 
-<form onsubmit="sendMessage(); return false;">
-    <input type="text" id="message">
-    <input type="submit" value="Send"></input>
-</form>
+<script src="~/js/chat.js" asp-append-version="true"></script>
 
