@@ -11,7 +11,9 @@ using System.Threading;
 using System.Net.WebSockets;
 
 namespace LiveMessenger
-{
+{ 
+
+    //// TEST THIS MAYBE?? http://vtortola.github.io/WebSocketListener/
     public class ClientConnection
     { 
         private byte[] buffer = new byte[1024 * 1024];
