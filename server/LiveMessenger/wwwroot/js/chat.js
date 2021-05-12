@@ -5,18 +5,21 @@ let socket = new WebSocket(wsString)
 
 socket.onopen = function (event) {
     console.log("Connected to chat!")
-    socket.send("User connected to the room");
 };
 
 socket.onmessage = function (event) {
-    console.log(event.data)
+    let messageContainer = document.getElementById("messages");
+    let msgHtml = document.createElement("p");
+    let message = JSON.parse(event.data);
+    msgHtml.innerHTML = `<p><b>${escapeHtml(message.User)}: </b>${escapeHtml(message.Message)}(Sent
+        ${escapeHtml(message.Date)})</p>`;
+    messageContainer.appendChild(msgHtml);
 };
 
 function sendMessage(){
     var message = `{
-        "user" : ${getCookie("username")},
-        "message" : ${document.getElementById("message").value},
-        "Date" : "2021",
+        "user" : \"${getCookie("username")}\",
+        "message" : \"${document.getElementById("message").value}\"
         }`;
     //let message = document.getElementById("message").value
     socket.send(message)
@@ -29,3 +32,12 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
+
+  function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
