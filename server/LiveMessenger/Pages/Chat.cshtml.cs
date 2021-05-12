@@ -16,9 +16,9 @@ namespace LiveMessenger.Pages
         public List<BsonDocument> previousMessages { get; set; }
         public IActionResult OnGet()
         {
-            if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
+            if (!CheckCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             String id = Request.Query["id"];
-            if (!checkRoom.byID(id)) return Redirect("/");
+            if (!CheckRoom.byID(id)) return Redirect("/");
             previousMessages = GetPreviousMessages.RetrievePreviousMessages(id);
             return null;
         }

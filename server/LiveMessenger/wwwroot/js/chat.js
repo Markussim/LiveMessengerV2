@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
-const wsString = "ws://localhost:5000/ws?id=" + id;
+const wsString = "ws://localhost:5001/" + id;
 let socket = new WebSocket(wsString)
 
 socket.onopen = function (event) {
@@ -14,6 +14,5 @@ socket.onmessage = function (event) {
 
 function sendMessage(){
     let message = document.getElementById("message").value
-    console.log(message)
     socket.send(message)
 }

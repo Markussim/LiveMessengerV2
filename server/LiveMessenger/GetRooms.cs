@@ -11,7 +11,7 @@ namespace LiveMessenger
     {
         public static List<BsonDocument> RetrieveRooms()
         {
-            var collection = connectToDB.db.GetCollection<BsonDocument>("Rooms");
+            var collection = ConnectToDB.db.GetCollection<BsonDocument>("Rooms");
             return collection.Find(new BsonDocument()).ToList();
         }
     }
