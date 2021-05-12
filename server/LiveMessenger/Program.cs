@@ -13,7 +13,7 @@ namespace LiveMessenger
     {
         public static void Main(string[] args)
         {
-            connectToDB.connectToMongo();
+            ConnectToDB.connectToMongo();
             CreateHostBuilder(args).Build().Run();
         }
 

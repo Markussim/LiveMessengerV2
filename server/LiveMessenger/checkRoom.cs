@@ -14,14 +14,14 @@ using System.Net;
 
 namespace LiveMessenger
 {
-    public class checkRoom
+    public class CheckRoom
     {
         public static bool byID(string id)
         {
             try
             {
                 bool validRoom = true;
-                var collection = connectToDB.db.GetCollection<BsonDocument>("Rooms");
+                var collection = ConnectToDB.db.GetCollection<BsonDocument>("Rooms");
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(id));
                 var document = collection.Find(filter).FirstOrDefault();
                 if (document == null) validRoom = false;

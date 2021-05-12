@@ -4,7 +4,7 @@ using System.Web;
 
 namespace LiveMessenger
 {
-    public class checkCookie
+    public class CheckCookie
     {
         public static bool checkUsername(HttpRequest Request)
         {

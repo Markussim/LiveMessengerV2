@@ -29,7 +29,7 @@ namespace LiveMessenger
 
             MessageModel msgModel = new MessageModel("user", message.Trim(), room.roomID);
             msgModel.SaveMessage();
-            clients.ForEach(client => client.sendMessage(message)); //SHUT UP C# YOU FKN DUM DUM!!
+            clients.ForEach(client => client.sendMessage(message)); 
         }
 
     }

@@ -16,7 +16,7 @@ namespace LiveMessenger
         
         public override void CreateRoom()
         {
-            var collection = connectToDB.db.GetCollection<RoomModel>("Rooms");
+            var collection = ConnectToDB.db.GetCollection<RoomModel>("Rooms");
             collection.InsertOne(this);
         }
     }

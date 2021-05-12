@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace LiveMessenger
 {
-    public class connectToDB
+    public class ConnectToDB
     {
 
         public static MongoClient dbClient;

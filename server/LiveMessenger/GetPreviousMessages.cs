@@ -16,7 +16,7 @@ namespace LiveMessenger
     {
         public static List<BsonDocument> RetrievePreviousMessages(string roomID)
         {
-            var collection = connectToDB.db.GetCollection<BsonDocument>("Messages");
+            var collection = ConnectToDB.db.GetCollection<BsonDocument>("Messages");
             var filter = Builders<BsonDocument>.Filter.Eq("Room", roomID);
             return collection.Find(filter).ToList();
         }
