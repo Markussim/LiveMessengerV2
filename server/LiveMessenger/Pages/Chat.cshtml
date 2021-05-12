@@ -4,21 +4,18 @@
     ViewData["Title"] = "Chatt";
 }
 <script src="~/js/chat.js" defer></script>
-<script
-			  src="https://code.jquery.com/jquery-3.6.0.slim.js"
-			  integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
-			  crossorigin="anonymous"></script>
-              
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
 <h1>Cool Chat room</h1>
 <div id="messages">
-@foreach (var message in @Model.previousMessages)
-{
-    <p><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value (Sent
-    @message.GetElement("Date").Value)</p>
-}
+    @foreach (var message in @Model.previousMessages)
+    {
+        <p><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value (Sent
+            @message.GetElement("Date").Value)</p>
+    }
 </div>
 <form onsubmit="sendMessage(); return false;">
     <input type="text" id="message">
     <input type="submit" value="Send"></input>
 </form>
-
