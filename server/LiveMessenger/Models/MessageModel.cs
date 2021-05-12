@@ -25,7 +25,7 @@ namespace LiveMessenger
 
         public void SaveMessage()
         {
-            var collection = connectToDB.db.GetCollection<MessageModel>("Messages");
+            var collection = ConnectToDB.db.GetCollection<MessageModel>("Messages");
             collection.InsertOne(this);
         }
     }

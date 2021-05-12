@@ -17,7 +17,7 @@ namespace LiveMessenger.Pages
         public string Username { get; set; }
         public IActionResult OnGet()
         {
-            if (!checkCookie.checkUsername(Request)) return Redirect("ChangeUsername");
+            if (!CheckCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             Username = Request.Cookies["username"];
             Rooms = GetRooms.RetrieveRooms();
             return null;

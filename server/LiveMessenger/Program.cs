@@ -13,7 +13,8 @@ namespace LiveMessenger
     {
         public static void Main(string[] args)
         {
-            connectToDB.connectToMongo();
+            ConnectToDB.connectToMongo();
+            FleckConnection.start();
             CreateHostBuilder(args).Build().Run();
         }
 

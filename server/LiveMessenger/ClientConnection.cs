@@ -8,48 +8,33 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
-using System.Net.WebSockets;
+using Fleck;
 
 namespace LiveMessenger
 {
+
     public class ClientConnection
     {
-        private byte[] buffer = new byte[1024 * 1024];
-
-        private WebSocketReceiveResult result { get; set; }
-
-        private WebSocket webSocket { get; set; }
-
-        private HttpContext context { get; set; }
-
         public Room room { get; set; }
 
-        public ClientConnection(WebSocket webSocketIN, HttpContext contextIN, Room roomIN)
+        public IWebSocketConnection socket { get; set; }
+        
+
+        public ClientConnection(Room roomIN, IWebSocketConnection socketIN)
         {
-            webSocket = webSocketIN;
-            context = contextIN;
             room = roomIN;
-        }
-        public async Task Startup()
-        {
-            result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            await receiveMessage();
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+            socket = socketIN;
+            receiveMessage();
         }
 
-        public async Task receiveMessage()
+        public void receiveMessage()
         {
-            while (!result.CloseStatus.HasValue)
-            {
-                room.Notify(buffer, room);
-                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            }
+            socket.OnMessage = message => room.Notify(message, room);
         }
 
-        public async Task sendMessage(Byte[] messageByte) 
+        public void sendMessage(string message)
         {
-            await webSocket.SendAsync(new ArraySegment<byte>(messageByte, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
+            socket.Send(message);
         }
-
     }
 }

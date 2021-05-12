@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace LiveMessenger
 {
@@ -24,29 +27,14 @@ namespace LiveMessenger
             clients.Add(client);
         }
 
-        public void Notify(Byte[] messageByte, Room room)
+        public void Notify(string message, Room room)
         {
-            messageByte = removeTrailingNulls(messageByte);
-            if (System.Text.Encoding.UTF8.GetString(messageByte) != "")
-            {
-                MessageModel message = new MessageModel("user", System.Text.Encoding.UTF8.GetString(messageByte).Trim(), room.roomID);
-                message.SaveMessage();
-            }
-            clients.ForEach(client => client.sendMessage(messageByte));
+            JObject json = JObject.Parse(message); //parses JSON String from Client to Object
+            MessageModel msgModel = new MessageModel(json.Property("user").Value.ToString(), json.Property("message").Value.ToString(), room.roomID); //creates message model with Object
+            msgModel.SaveMessage(); //saves model (the message) to MongoDB
+            string msgJson = JsonConvert.SerializeObject(msgModel, Formatting.Indented); //converts Model to JSON
+            clients.ForEach(client => client.sendMessage(msgJson)); //send JSON with WS to all clients
         }
 
-        public byte[] removeTrailingNulls(Byte[] tmp)
-        { 
-            /*
-            STOLEN FROM STACKOVERFLOWW
-            https://stackoverflow.com/a/240745
-            */
-            int i = tmp.Length - 1;
-            while (tmp[i] == 0)
-                --i;
-            byte[] tmp2 = new byte[i + 1];
-            Array.Copy(tmp, tmp2, i + 1);
-            return tmp2;
-        }
     }
 }
