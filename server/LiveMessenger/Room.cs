@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
+using Newtonsoft.Json.Linq;
 
 namespace LiveMessenger
 {
@@ -27,7 +29,7 @@ namespace LiveMessenger
         public void Notify(string message, Room room)
         {
 
-            MessageModel msgModel = new MessageModel("user", message.Trim(), room.roomID);
+            MessageModel msgModel = new MessageModel("user", message, room.roomID);
             msgModel.SaveMessage();
             clients.ForEach(client => client.sendMessage(message)); 
         }

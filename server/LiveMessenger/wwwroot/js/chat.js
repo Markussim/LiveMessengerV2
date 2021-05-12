@@ -13,6 +13,19 @@ socket.onmessage = function (event) {
 };
 
 function sendMessage(){
-    let message = document.getElementById("message").value
+    var message = `{
+        "user" : ${getCookie("username")},
+        "message" : ${document.getElementById("message").value},
+        "Date" : "2021",
+        }`;
+    //let message = document.getElementById("message").value
     socket.send(message)
 }
+
+
+//FUNCTION STOLEN FROM https://stackoverflow.com/a/15724300
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }

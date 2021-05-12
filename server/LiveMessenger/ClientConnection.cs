@@ -18,6 +18,7 @@ namespace LiveMessenger
         public Room room { get; set; }
 
         public IWebSocketConnection socket { get; set; }
+        
 
         public ClientConnection(Room roomIN, IWebSocketConnection socketIN)
         {
