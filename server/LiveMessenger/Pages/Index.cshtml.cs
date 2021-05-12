@@ -19,7 +19,7 @@ namespace LiveMessenger.Pages
         {
             if (!CheckCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             Username = Request.Cookies["username"];
-            Rooms = GetRooms.RetrieveRooms();
+            Rooms = GetRoom.RetrieveAllRooms();
             return null;
         }
     }
