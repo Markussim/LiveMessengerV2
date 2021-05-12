@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace LiveMessenger
@@ -28,10 +29,11 @@ namespace LiveMessenger
 
         public void Notify(string message, Room room)
         {
-
-            MessageModel msgModel = new MessageModel("user", message, room.roomID);
-            msgModel.SaveMessage();
-            clients.ForEach(client => client.sendMessage(message)); 
+            JObject json = JObject.Parse(message); //parses JSON String from Client to Object
+            MessageModel msgModel = new MessageModel(json.Property("user").Value.ToString(), json.Property("message").Value.ToString(), room.roomID); //creates message model with Object
+            msgModel.SaveMessage(); //saves model (the message) to MongoDB
+            string msgJson = JsonConvert.SerializeObject(msgModel, Formatting.Indented); //converts Model to JSON
+            clients.ForEach(client => client.sendMessage(msgJson)); //send JSON with WS to all clients
         }
 
     }
