@@ -14,8 +14,6 @@ namespace LiveMessenger
 {
     public class Startup
     {
-
-        private List<Room> rooms = new List<Room>();
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
