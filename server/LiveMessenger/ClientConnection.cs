@@ -8,7 +8,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Threading;
-using System.Net.WebSockets;
+using Fleck;
 
 namespace LiveMessenger
 {
@@ -17,23 +17,23 @@ namespace LiveMessenger
     {
         public Room room { get; set; }
 
-        public ClientConnection(Room roomIN)
+        public IWebSocketConnection socket { get; set; }
+
+        public ClientConnection(Room roomIN, IWebSocketConnection socketIN)
         {
             room = roomIN;
-        }
-        public void Startup()
-        {
-
+            socket = socketIN;
+            receiveMessage();
         }
 
         public void receiveMessage()
         {
-
+            socket.OnMessage = message => room.Notify(message, room);
         }
 
         public void sendMessage(string message)
         {
-
+            socket.Send(message);
         }
     }
 }
