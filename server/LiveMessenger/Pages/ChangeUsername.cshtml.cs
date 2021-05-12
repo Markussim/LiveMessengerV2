@@ -15,7 +15,10 @@ namespace LiveMessenger.Pages
         }
         public IActionResult OnPost(string username)
         {
-            Response.Cookies.Append("username", username);
+            Response.Cookies.Append("username", username, new Microsoft.AspNetCore.Http.CookieOptions
+            {
+                Expires = DateTimeOffset.Now.AddYears(69) //nice
+            });
             return Redirect("/");
 
         }
