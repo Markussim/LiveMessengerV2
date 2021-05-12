@@ -7,9 +7,19 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome @Model.Username!</h1>
-
-    @foreach (var room in @Model.Rooms)
-    {
-        <a href="/Chat?id=@room.GetElement("_id").Value">@room.GetElement("Name").Value</a>
-    }
+    <div id="rooms">
+        @foreach (var room in @Model.Rooms)
+        {
+            @if (room.GetElement("Private").Value == true)
+            {
+                <a href="/Chat?id=@room.GetElement("_id").Value"><b>[PRIVATE]</b> @room.GetElement("Name").Value</a>
+                <br>
+            }
+            else
+            {
+                <a href="/Chat?id=@room.GetElement("_id").Value">@room.GetElement("Name").Value</a>
+                <br>
+            }
+        }
+    </div>
 </div>
