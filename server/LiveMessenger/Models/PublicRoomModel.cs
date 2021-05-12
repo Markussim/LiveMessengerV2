@@ -12,8 +12,9 @@ namespace LiveMessenger
         {
             Name = nameIN;
             Description = descriptionIN;
+            Private = false;
         }
-        
+
         public override void CreateRoom()
         {
             var collection = ConnectToDB.db.GetCollection<RoomModel>("Rooms");

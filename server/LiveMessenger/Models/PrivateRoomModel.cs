@@ -8,15 +8,13 @@ namespace LiveMessenger
     public class PrivateRoomModel : RoomModel
     {
         public string Password { get; set; }
-        public bool privateRoom { get; set; }
-
 
         public PrivateRoomModel(string nameIN, string descriptionIN, string passwordIN)
         {
             Name = nameIN;
             Description = descriptionIN;
             Password = passwordIN;
-            privateRoom = true;
+            Private = true;
         }
 
         public override void CreateRoom()

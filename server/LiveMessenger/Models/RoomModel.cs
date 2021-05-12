@@ -7,11 +7,11 @@ namespace LiveMessenger
 {
     public abstract class RoomModel
     {
+        public bool Private { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
-
-        public List<MessageModel> Messages { get; set; }
 
         public abstract void CreateRoom();
     }
