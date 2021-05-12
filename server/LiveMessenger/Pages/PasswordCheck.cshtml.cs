@@ -11,20 +11,25 @@ using MongoDB.Driver;
 
 namespace LiveMessenger.Pages
 {
-    public class ChatModel : PageModel
+    public class PasswordCheckModel : PageModel
     {
-        public List<BsonDocument> previousMessages { get; set; }
+
         public IActionResult OnGet()
         {
             if (!CheckCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             String id = Request.Query["id"];
             if (!CheckRoom.byID(id)) return Redirect("/");
-            if (GetRoom.RetrieveOneRoom(id).GetElement("Private").Value == true && !CheckPassword.isCorrect(Request.Cookies[id], id)) return Redirect($"/PasswordCheck?id={id}"); 
-            previousMessages = GetPreviousMessages.RetrievePreviousMessages(id);
             return null;
         }
-        public void OnPost()
+        public IActionResult OnPost(string password)
         {
+            String id = Request.Query["id"];
+            System.Console.WriteLine(password);
+            if(CheckPassword.isCorrect(password, id)) {
+                Response.Cookies.Append(id, password);
+                return Redirect($"/Chat?id={id}");
+            }
+            return null;
         }
     }
 }
