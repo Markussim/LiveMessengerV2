@@ -14,7 +14,7 @@ namespace LiveMessenger
         {
             dbClient = new MongoClient("mongodb://localhost:27017/");
             db = dbClient.GetDatabase("LiveMessengerV2");
-      
+
         }
     }
 }
