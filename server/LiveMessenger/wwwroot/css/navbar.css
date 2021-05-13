@@ -1,0 +1,47 @@
+/* change the background color */
+.navbar-custom {
+	background-color: #004e7c;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+	color: #ffffff;
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+	color: #ffffff;
+}
+
+.navbar-brand {
+	font-weight: bolder;
+}
+
+.btn {
+	border-color: #ffffff;
+	border-width: medium;
+	color: #ffffff;
+	font-weight: bolder;
+    margin-left: 10px;
+}
+
+#createRoom {
+	border-color: #ffffff;
+	background-color: white;
+	color: #004e7c;
+}
+
+#changeUsername:hover {
+	background-color: #dddddd !important;
+    color: #004e7c !important;
+    border-color: #dddddd;
+}
+
+#createRoom:hover {
+	background-color: #dddddd !important;
+    border-color: #dddddd;
+}
+
+
+
