@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace LiveMessenger
 {
-    public abstract class RoomModel
+    public abstract class RoomModel // Abstract class th
     {
-        public bool Private { get; set; }
+        public bool Private { get; set; } //init of the varibles
 
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public abstract void CreateRoom();
+        public abstract void CreateRoom(); // Init of the function CreateRoom()
     }
 }
