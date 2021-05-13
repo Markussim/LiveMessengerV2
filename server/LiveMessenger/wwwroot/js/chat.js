@@ -22,7 +22,7 @@ socket.onmessage = function (event) {
 
 function sendMessage(){
     var message = `{
-        "user" : \"${getCookie("username")}\",
+        "user" : \"${getCookie("username").replace(/%20/g, " ")}\",
         "message" : \"${document.getElementById("message").value}\"
         }`;
     //let message = document.getElementById("message").value
