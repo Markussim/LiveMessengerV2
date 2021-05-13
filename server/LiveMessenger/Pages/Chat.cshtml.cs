@@ -19,8 +19,14 @@ namespace LiveMessenger.Pages
             if (!CheckCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             String id = Request.Query["id"];
             if (!CheckRoom.byID(id)) return Redirect("/");
-            if (GetRoom.RetrieveOneRoom(id).GetElement("Private").Value == true && !CheckPassword.isCorrect(Request.Cookies[id], id)) return Redirect($"/PasswordCheck?id={id}"); 
+            if (GetRoom.RetrieveOneRoom(id).GetElement("Private").Value == true && !CheckPassword.isCorrect(Request.Cookies[id], id)) return Redirect($"/PasswordCheck?id={id}");
             previousMessages = GetPreviousMessages.RetrievePreviousMessages(id);
+
+            foreach (var item in previousMessages)
+            {
+                System.Console.WriteLine(TimeAgo.Calculate(Convert.ToDateTime(item.GetElement("Date").Value)));
+            }
+
             return null;
         }
         public void OnPost()
