@@ -13,12 +13,14 @@ namespace LiveMessenger
     public class FleckConnection
     {
         private static List<Room> rooms = new List<Room>();
+
+        //Method starts the WebSocket server and controls the open and close WebSocket methods
         public static void start()
         {
             var server = new WebSocketServer("ws://0.0.0.0:5001");
             server.Start(socket =>
             {
-                socket.OnOpen = () =>
+                socket.OnOpen = () => //Checks if a room exists and if that is true opens a new connection
                 {
                     string roomID = socket.ConnectionInfo.Path.Substring(1);
                     bool existingRoom = false;
