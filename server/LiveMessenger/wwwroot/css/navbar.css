@@ -33,9 +33,9 @@
 }
 
 #changeUsername:hover {
-	background-color: rgb(255, 255, 255) !important;
+	background-color: #dddddd !important;
     color: #004e7c !important;
-    border-color: #ffffff;
+    border-color: #dddddd;
 }
 
 #createRoom:hover {
