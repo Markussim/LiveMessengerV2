@@ -15,6 +15,8 @@ namespace LiveMessenger.Pages
         }
         public IActionResult OnPost(string username)
         {
+            username = username.Length > 15 ? username.Substring(0, 15) : username; //Cuts the username at 15
+
             Response.Cookies.Append("username", username, new Microsoft.AspNetCore.Http.CookieOptions
             {
                 Expires = DateTimeOffset.Now.AddYears(69) //nice

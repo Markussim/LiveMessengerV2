@@ -23,9 +23,11 @@ namespace LiveMessenger.Pages
         }
         public IActionResult OnPost(string password)
         {
+            password = password.Length > 69 ? password.Substring(0, 69) : password; //Cuts the Password at 69
             String id = Request.Query["id"];
             System.Console.WriteLine(password);
-            if(CheckPassword.isCorrect(password, id)) {
+            if (CheckPassword.isCorrect(password, id))
+            {
                 Response.Cookies.Append(id, password);
                 return Redirect($"/Chat?id={id}");
             }

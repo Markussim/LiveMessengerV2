@@ -17,8 +17,9 @@ namespace LiveMessenger
         public DateTime Date { get; set; }
 
         public MessageModel(string UserIN, string MessageIN, string RoomIN){ // Contstructor for MessageModel. Sets the variables to input and sets Date to Current Date
-            User = UserIN;
-            Message = MessageIN;
+        System.Console.WriteLine(UserIN.Length);
+            User = UserIN.Length > 15 ? UserIN.Substring(0, 15) : UserIN; //Cuts the username at 15
+            Message = MessageIN.Length > 100 ? MessageIN.Substring(0, 100) : MessageIN; //Cuts the Message at 100
             Room = RoomIN;
             Date = DateTime.Now;
         }

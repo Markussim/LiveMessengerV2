@@ -11,9 +11,9 @@ namespace LiveMessenger
 
         public PrivateRoomModel(string nameIN, string descriptionIN, string passwordIN) // Contstructor for PrivateRoomModel. Sets the variables to input
         {
-            Name = nameIN;
-            Description = descriptionIN;
-            Password = passwordIN;
+            Name = nameIN.Length > 15 ? nameIN.Substring(0, 15) : nameIN; //Cuts the Name at 15
+            Description = descriptionIN.Length > 70 ? descriptionIN.Substring(0, 70) : descriptionIN; //Cuts the Description at 70
+            Password = passwordIN.Length > 69 ? passwordIN.Substring(0, 69) : passwordIN; //Cuts the Password at 69
             Private = true;
         }
 

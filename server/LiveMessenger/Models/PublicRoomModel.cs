@@ -10,8 +10,8 @@ namespace LiveMessenger
 
         public PublicRoomModel(string nameIN, string descriptionIN) // Contstructor for PublicRoomModel. Sets the variables to input
         {
-            Name = nameIN;
-            Description = descriptionIN;
+            Name = nameIN.Length > 15 ? nameIN.Substring(0, 15) : nameIN; //Cuts the Name at 15
+            Description = descriptionIN.Length > 70 ? descriptionIN.Substring(0, 70) : descriptionIN; //Cuts the Description at 70
             Private = false;
         }
 
