@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - LiveMessenger</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" href="~/css/navbar.css">
 
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-custom navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">LiveMessenger</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
@@ -23,10 +23,10 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/changeUsername">Byt Användarnamn</a>
+                            <a class="nav-link btn btn-outline-primary" asp-area="" asp-page="/changeUsername">Byt Användarnamn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/createRoom">Skapa Rum</a>
+                            <a id="createRoom" class="nav-link btn" asp-area="" asp-page="/createRoom">Skapa Rum</a>
                         </li>
                     </ul>
                 </div>
