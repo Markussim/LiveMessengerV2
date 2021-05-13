@@ -4,6 +4,7 @@
     ViewData["Title"] = "Skapa rum";
 }
 
+<<<<<<< Updated upstream
 <section class="container-fluid">
     <section class="row justify-content-center">
         <section class="col-12 col-sm-6 col-md-3">
@@ -29,14 +30,30 @@
                         id="password" name="password"/>
                         <p><b>Note:</b> The password is not hashed.</p>
                 </div>
+=======
+<form class="col-4 mx-auto my-5 d-block" style="color: #004e7c;" method="POST">
+    <legend class="text-center"><b>Skapa ett rum</b></legend>
+    <div class="mb-3">
+        <label for="roomName" class="form-label"><b>Rumsnamn</b></label>
+        <input type="text" class="form-control" id="roomName" name="roomName" placeholder="Rumsnamn" maxlength="15" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label"><b>Beskriving</b></label>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Beskriving" maxlength="70" required>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="privateRoomCheck" onclick="privateRoom()">
+        <label class="form-check-label" for="privateRoomCheck" style="color: #000;">Privat rum</label>
+    </div>
+    <div class="mb-3" id="private" hidden>
+        <label for="password" class="form-label"><b>Lösenord</b></label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Lösenord" maxlength="69">
+        <div class="form-text h6" style="color: #000;"><small>Detta lösenord kommer inte krypteras!</small></div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="background-color: #004e7c;">Skapa rummet</button>
+</form>
+>>>>>>> Stashed changes
 
-                <button type="submit" class="btn btn-primary btn-block">
-                    Skapa ett rum
-                </button>
-            </form>
-        </section>
-    </section>
-</section>
 
 <script>
     function privateRoom() {
