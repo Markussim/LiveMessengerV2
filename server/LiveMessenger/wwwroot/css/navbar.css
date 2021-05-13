@@ -32,10 +32,16 @@
 	color: #004e7c;
 }
 
-.btn:hover {
-	background-color: rgb(255, 0, 0) !important;
-    color: #ffffff !important;
+#changeUsername:hover {
+	background-color: rgb(255, 255, 255) !important;
+    color: #004e7c !important;
     border-color: #ffffff;
 }
+
+#createRoom:hover {
+	background-color: #dddddd !important;
+    border-color: #dddddd;
+}
+
 
 
