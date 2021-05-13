@@ -16,6 +16,7 @@ namespace LiveMessenger
 {
     public class CheckRoom
     {
+        //Method checks if the input id is related to a existing room, if it is, the method returns true
         public static bool byID(string id)
         {
             try

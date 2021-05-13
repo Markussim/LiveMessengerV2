@@ -9,6 +9,7 @@ namespace LiveMessenger
 {
     public class CheckPassword
     {
+        //Method retruns true if the user inputted password matches the room password
         public static bool isCorrect(string password, string roomID)
         {
             BsonDocument document = GetRoom.RetrieveOneRoom(roomID);
