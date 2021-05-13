@@ -23,6 +23,7 @@
 	border-width: medium;
 	color: #ffffff;
 	font-weight: bolder;
+    margin-left: 10px;
 }
 
 #createRoom {
@@ -32,7 +33,8 @@
 }
 
 .btn:hover {
-	background-color: rgb(255, 0, 0);
+	background-color: rgb(255, 0, 0) !important;
+    color: #ffffff !important;
     border-color: #ffffff;
 }
 
