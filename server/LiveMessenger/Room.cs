@@ -16,17 +16,23 @@ namespace LiveMessenger
     {
         public string roomID;
 
+        //Constructor that sets the RoomID var.
         public Room(string roomIDIN)
         {
             roomID = roomIDIN;
         }
         private List<ClientConnection> clients = new List<ClientConnection>();
 
-        public void Subscribe(ClientConnection client)
+        //Functions that adds a ClientConnection to the List<>
+        public void Subscribe(ClientConnection client) 
         {
             clients.Add(client);
         }
 
+        /*
+         Function that parses the incomming JSON, creates MessageModel from information.
+            Saves to MongoDB and creates JSON from MessageModel and send to all clients
+        */
         public void Notify(string message, Room room)
         {
             JObject json = JObject.Parse(message); //parses JSON String from Client to Object
