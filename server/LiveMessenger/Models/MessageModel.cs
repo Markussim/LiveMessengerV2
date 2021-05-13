@@ -16,14 +16,14 @@ namespace LiveMessenger
 
         public DateTime Date { get; set; }
 
-        public MessageModel(string UserIN, string MessageIN, string RoomIN){
+        public MessageModel(string UserIN, string MessageIN, string RoomIN){ // Contstructor for MessageModel. Sets the variables to input and sets Date to Current Date
             User = UserIN;
             Message = MessageIN;
             Room = RoomIN;
             Date = DateTime.Now;
         }
 
-        public void SaveMessage()
+        public void SaveMessage() //Saves the current instance of the MessageModel to MongoDB in the collection Messages
         {
             var collection = ConnectToDB.db.GetCollection<MessageModel>("Messages");
             collection.InsertOne(this);
