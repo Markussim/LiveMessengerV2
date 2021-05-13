@@ -13,7 +13,8 @@ using MongoDB.Driver;
 namespace LiveMessenger
 {
     public class GetPreviousMessages
-    {
+    {   
+        //Retrieves all Messages from MongoDB Collection Messages, but only the ones that matches roomID.
         public static List<BsonDocument> RetrievePreviousMessages(string roomID)
         {
             var collection = ConnectToDB.db.GetCollection<BsonDocument>("Messages");
