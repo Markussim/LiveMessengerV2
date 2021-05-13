@@ -11,9 +11,13 @@ socket.onmessage = function (event) {
     let messageContainer = document.getElementById("messages");
     let msgHtml = document.createElement("p");
     let message = JSON.parse(event.data);
-    msgHtml.innerHTML = `<p><b>${escapeHtml(message.User)}: </b>${escapeHtml(message.Message)}(Sent
-        ${escapeHtml(message.Date)})</p>`;
+    msgHtml.innerHTML = `<b>${escapeHtml(message.User)}: </b>${escapeHtml(message.Message)}`;
+    let dateContainer = document.createElement("div");
+    dateContainer.className = "timeago"
+    dateContainer.setAttribute("datetime", escapeHtml(message.Date))
     messageContainer.appendChild(msgHtml);
+    messageContainer.appendChild(dateContainer)
+    renderTime()
 };
 
 function sendMessage(){
