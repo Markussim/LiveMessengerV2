@@ -11,12 +11,12 @@
                 <div class="form-group">
                     <h4 class="text-center font-weight-bold">Skapa ett rum</h4>
                     <label for="roomName">Rumsnamn</label>
-                    <input class="form-control" type="text" placeholder="Rumsnamn" class="fadeIn second" id="roomName"
+                    <input class="form-control" type="text" placeholder="Rumsnamn" class="fadeIn second" id="roomName" maxlength="15"
                         name="roomName" required />
                 </div>
                 <div class="form-group">
                     <label for="description">Beskriving</label>
-                    <input class="form-control" class="fadeIn third" type="text" placeholder="Beskrivning"
+                    <input class="form-control" class="fadeIn third" type="text" placeholder="Beskrivning" maxlength="50"
                         name="description" id="description" required/>
                 </div>
                 <div class="form-check">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group" id="private" hidden>
                     <label for="password">Lösenord</label>
-                    <input class="form-control" type="password" placeholder="Lösenord" class="fadeIn third"
+                    <input class="form-control" type="password" placeholder="Lösenord" class="fadeIn third" maxlength="100"
                         id="password" name="password"/>
                 </div>
 
