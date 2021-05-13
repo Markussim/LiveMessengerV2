@@ -13,32 +13,32 @@ namespace LiveMessenger
     {
         public static string Calculate(DateTime date)
         {
-            int SECOND = 1;
-            int MINUTE = 60 * SECOND;
-            int HOUR = 60 * MINUTE;
-            int DAY = 24 * HOUR;
-            int MONTH = 30 * DAY;
+            date = date.ToLocalTime();
+            DateTime currentTime = DateTime.Now;
+            int second = 1;
+            int minute = 60 * second;
+            int hour = 60 * minute;
 
-            TimeSpan timespan = new TimeSpan(DateTime.Now.Ticks - date.Ticks);
+            TimeSpan timespan = new TimeSpan(currentTime.Ticks - date.Ticks);
             double diffrence = Math.Abs(timespan.TotalSeconds);
 
 
             if (timespan.Seconds == 0) 
                 return "Just now";
 
-            if (diffrence < 1 * MINUTE)
+            if (diffrence < 1 * minute)
                 return timespan.Seconds == 1 ? "one second ago" : timespan.Seconds + " seconds ago";
 
-            if (diffrence < 2 * MINUTE)
+            if (diffrence < 2 * minute)
                 return "a minute ago";
 
-            if (diffrence < 45 * MINUTE)
+            if (diffrence < 45 * minute)
                 return timespan.Minutes + " minutes ago";
 
-            if (diffrence < 90 * MINUTE)
+            if (diffrence < 90 * minute)
                 return "an hour ago";
 
-            if (diffrence < 24 * HOUR)
+            if (diffrence < 24 * hour)
                 return timespan.Hours + " hours ago";
 
             return date.ToString();
