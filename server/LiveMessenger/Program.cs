@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace LiveMessenger
 {
-    public class Program
+    public class Program 
     {
         public static void Main(string[] args)
         {
-            ConnectToDB.connectToMongo();
-            FleckConnection.start();
-            CreateHostBuilder(args).Build().Run();
+            ConnectToDB.connectToMongo(); //Connectes to MongoDB Server
+            FleckConnection.start(); //Starts the Websocket Server
+            CreateHostBuilder(args).Build().Run(); //Starts the Razor Project.
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) => //FROM INIT OF PROJECT
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
