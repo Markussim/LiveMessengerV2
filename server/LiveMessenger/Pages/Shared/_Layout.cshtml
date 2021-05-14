@@ -5,8 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - LiveMessenger</title>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/tooltip.js"></script>
     <link rel="stylesheet" href="~/css/navbar.css">
+
     @section Links{
     @if (@IsSectionDefined("Links")){
     @RenderSection("Links", required: false)

@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="~/css/chat.css">
 <script src="~/js/chat.js" defer></script>
 <script src="~/js/timeago.js" defer></script>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
-    integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
     crossorigin="anonymous"></script>
@@ -23,7 +21,7 @@
     @foreach (var message in @Model.previousMessages)
     {
         <p><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value
-        <div class="timeago" datetime="@message.GetElement("Date").Value"></div>
+        <div class="timeago" datetime="@message.GetElement("Date").Value" data-toggle="tooltip" data-placement="top" title="@message.GetElement("Date").Value"></div>
         </p>
     }
 </div>
