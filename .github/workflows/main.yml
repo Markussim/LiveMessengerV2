@@ -4,7 +4,7 @@ defaults:
   run:
     working-directory: ./server/LiveMessenger
 
-name: Dotnet-CI
+name: DOTNET
 
 # Controls when the action will run. 
 on:
