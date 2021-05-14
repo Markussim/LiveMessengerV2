@@ -19,11 +19,11 @@
 <div id="messages" class="p-2">
     @foreach (var message in @Model.previousMessages)
     {
-        <div class="messageItem">
-            <p class="d-inline-block"><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value
+        <div class="messageItem p-2">
+            <p class="d-inline-block"><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value </p>
+
             <div class="timeago d-inline-block float-right" datetime="@message.GetElement("Date").Value"
             data-toggle="tooltip" data-placement="top" title="@message.GetElement("Date").Value"></div>
-            </p>
         </div>
     }
 </div>
@@ -31,7 +31,8 @@
 <div class="panel-footer w-75 m-auto fixed-bottom">
     <form class="d-flex flex-fill" onsubmit="sendMessage(); return false;">
         <div class="input-group">
-            <input type="text" autocomplete="off" id="message" maxlength="100" class="form-control" placeholder="Skriv något...">
+            <input type="text" autocomplete="off" id="message" maxlength="100" class="form-control"
+                placeholder="Skriv något...">
             <span class="input-group-btn">
                 <input type="submit" class="btn btn-primary" value="Skicka"></input>
             </span>

@@ -9,16 +9,23 @@ socket.onopen = function (event) {
 };
 
 socket.onmessage = function (event) {
+    let messageItem = document.createElement("div")
+    messageItem.className = "messageItem p-2"
 	let msgHtml = document.createElement("p");
+    msgHtml.className = "d-inline-block"
 	let message = JSON.parse(event.data);
 	msgHtml.innerHTML = `<b>${escapeHtml(message.User)}: </b>${escapeHtml(
 		message.Message
 	)}`;
 	let dateContainer = document.createElement("div");
-	dateContainer.className = "timeago";
+	dateContainer.className = "timeago d-inline-block float-right";
 	dateContainer.setAttribute("datetime", escapeHtml(message.Date));
-	messageContainer.appendChild(msgHtml);
-	messageContainer.appendChild(dateContainer);
+    dateContainer.setAttribute("data-toggle", "tooltip");
+	dateContainer.setAttribute("data-placement", "top");
+	dateContainer.setAttribute("title", escapeHtml(message.Date));
+    messageItem.appendChild(msgHtml)
+    messageItem.appendChild(dateContainer)
+    messageContainer.appendChild(messageItem)
     messageContainer.scrollTo(0,document.body.scrollHeight);
 	renderTime();
 };
