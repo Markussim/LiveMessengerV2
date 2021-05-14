@@ -7,7 +7,12 @@
     <title>@ViewData["Title"] - LiveMessenger</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/navbar.css">
-
+    @section Links{
+    @if (@IsSectionDefined("Links")){
+    @RenderSection("Links", required: false)
+    }
+    }
+    @RenderSection("Links")
 </head>
 
 <body>
@@ -23,7 +28,8 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a id="changeUsername" class="nav-link btn btn-outline-primary" asp-area="" asp-page="/changeUsername">Byt Användarnamn</a>
+                            <a id="changeUsername" class="nav-link btn btn-outline-primary" asp-area=""
+                                asp-page="/changeUsername">Byt Användarnamn</a>
                         </li>
                         <li class="nav-item">
                             <a id="createRoom" class="nav-link btn" asp-area="" asp-page="/createRoom">Skapa Rum</a>
