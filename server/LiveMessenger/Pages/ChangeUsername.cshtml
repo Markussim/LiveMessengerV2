@@ -6,21 +6,12 @@
 
 @section Links {}
 
-<section class="container-fluid">
-    <section class="row justify-content-center">
-        <section class="col-12 col-sm-6 col-md-3">
-            <form id="theForm" method="POST" class="form-container">
-                <div class="form-group">
-                    <h4 class="text-center font-weight-bold">Välj Användarnamn</h4>
-                    <label for="username">Användarnamn</label>
-                    <input class="form-control" type="text" placeholder="Användarnamn" class="fadeIn second"
-                        id="username" maxlength="15" name="username" required />
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">
-                    Bekräfta
-                </button>
-            </form>
-        </section>
-    </section>
-</section>
+<form class="col-sm-12 col-md-4 mx-auto my-5 d-block d-flex flex-column justify-content-center" style="color: #004e7c;"
+    method="POST">
+    <legend class="text-center"><b>Välj Användarnamn</b></legend>
+    <div class="mb-3">
+        <label for="roomusernameName" class="form-label"><b>Användarnamn</b></label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Användarnamn" maxlength="15" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-50 mx-auto mt-2" style="background-color: #004e7c;">Bekräfta</button>
+</form>
