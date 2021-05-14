@@ -4,12 +4,14 @@
 @{
     ViewData["Title"] = "Hem";
 }
+@section Links {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+}
 
 <div class="text-center">
     <h1 class="display-4 my-5">Välkommen, @Model.Username!</h1>
     <div id="rooms" class="row d-flex justify-content-around">
-        
+
         @for (int i = 0; i < @Model.Rooms.Count; i++)
         {
             @if (i % 4 == 0)
@@ -30,7 +32,8 @@
                         <p class="card-text">
                             @Model.Rooms[i].GetElement("Description").Value
                         </p>
-                        <a href="/Chat?id=@Model.Rooms[i].GetElement("_id").Value" class="card-link stretched-link btn btn-primary" style="background-color: #004e7c;">Gå med</a>
+                        <a href="/Chat?id=@Model.Rooms[i].GetElement("_id").Value"
+                    class="card-link stretched-link btn btn-primary" style="background-color: #004e7c;">Gå med</a>
                     </div>
                 </div>
             }
@@ -46,7 +49,8 @@
                         <p class="card-text">
                             @Model.Rooms[i].GetElement("Description").Value
                         </p>
-                        <a href="/Chat?id=@Model.Rooms[i].GetElement("_id").Value" class="card-link stretched-link btn btn-primary" style="background-color: #004e7c;">Gå med</a>
+                        <a href="/Chat?id=@Model.Rooms[i].GetElement("_id").Value"
+                    class="card-link stretched-link btn btn-primary" style="background-color: #004e7c;">Gå med</a>
                     </div>
                 </div>
             }

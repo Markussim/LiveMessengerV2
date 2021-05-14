@@ -4,7 +4,9 @@
     ViewData["Title"] = "Skapa rum";
 }
 
-
+@section Links {
+    <script src="~/js/privateRoom.js"></script>
+}
 <form class="col-4 mx-auto my-5 d-block" style="color: #004e7c;" method="POST">
     <legend class="text-center"><b>Skapa ett rum</b></legend>
     <div class="mb-3">
@@ -28,14 +30,3 @@
 </form>
 
 
-<script>
-    function privateRoom() {
-        let privateRoom = document.getElementById("private");
-        if (document.getElementById("privateRoomCheck").checked) {
-            privateRoom.hidden = false
-        } else {
-            privateRoom.hidden = true
-            document.getElementById("password").value = ""
-        }
-    }
-</script>
