@@ -1,0 +1,7 @@
+.messageItem:hover {
+	background-color: rgb(236, 236, 236);
+}
+#messages {
+	overflow: auto;
+	height: 73vh;
+}

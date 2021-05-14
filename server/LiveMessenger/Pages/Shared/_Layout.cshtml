@@ -5,16 +5,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - LiveMessenger</title>
+
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/tooltip.js"></script>
+
     <link rel="stylesheet" href="~/css/navbar.css">
 
+    @section Links{
+    @if (@IsSectionDefined("Links")){
+    @RenderSection("Links", required: false)
+    }
+    }
+    @RenderSection("Links")
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-custom navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+        <nav class=" sticky-top navbar navbar-custom navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">LiveMessenger</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
@@ -25,7 +34,8 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a id="changeUsername" class="nav-link btn btn-outline-primary" asp-area="" asp-page="/changeUsername">Byt Användarnamn</a>
+                            <a id="changeUsername" class="nav-link btn btn-outline-primary" asp-area=""
+                                asp-page="/changeUsername">Byt Användarnamn</a>
                         </li>
                         <li class="nav-item">
                             <a id="createRoom" class="nav-link btn" asp-area="" asp-page="/createRoom">Skapa Rum</a>
