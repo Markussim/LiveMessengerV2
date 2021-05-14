@@ -9,7 +9,7 @@
 <div class="text-center">
     <h1 class="display-4 my-5">Välkommen, @Model.Username!</h1>
     <div id="rooms" class="row d-flex justify-content-around">
-        
+
         @for (int i = 0; i < @Model.Rooms.Count; i++)
         {
             @if (i % 4 == 0)
@@ -19,7 +19,7 @@
 
             @if (@Model.Rooms[i].GetElement("Private").Value == true)
             {
-                <div class="card mb-5" style="width: 20%">
+                <div class="card mb-5" style="width: 20%" data-toggle="tooltip" data-placement="top" title="Du behöver ett lösenord för att gå med i detta rum!">
                     <div class="card-body d-flex flex-column justify-content-around">
                         <h5 class="card-title" style="color: #004e7c;">
                             <i class="bi bi-lock-fill"></i>
