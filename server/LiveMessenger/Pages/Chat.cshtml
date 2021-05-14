@@ -13,21 +13,23 @@
     crossorigin="anonymous"></script>
 }
 
-
 <h1 class="text-center">@Model.room.GetElement("Name").Value</h1>
 <p class="text-center">@Model.room.GetElement("Description").Value</p>
 <hr>
-<div id="messages">
+<div id="messages" class="p-2">
     @foreach (var message in @Model.previousMessages)
     {
-        <p><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value
-        <div class="timeago" datetime="@message.GetElement("Date").Value" data-toggle="tooltip" data-placement="top" title="@message.GetElement("Date").Value"></div>
-        </p>
+        <div class="messageItem">
+            <p class="d-inline-block"><b>@message.GetElement("User").Value:</b> @message.GetElement("Message").Value
+            <div class="timeago d-inline-block float-right" datetime="@message.GetElement("Date").Value"
+            data-toggle="tooltip" data-placement="top" title="@message.GetElement("Date").Value"></div>
+            </p>
+        </div>
     }
 </div>
 
-<div class="panel-footer fixed-bottom">
-    <form onsubmit="sendMessage(); return false;">
+<div class="panel-footer w-75 m-auto fixed-bottom">
+    <form class="d-flex flex-fill" onsubmit="sendMessage(); return false;">
         <div class="input-group">
             <input type="text" id="message" maxlength="100" class="form-control" placeholder="Skriv något...">
             <span class="input-group-btn">
@@ -35,5 +37,4 @@
             </span>
         </div>
     </form>
-</div>
 </div>
