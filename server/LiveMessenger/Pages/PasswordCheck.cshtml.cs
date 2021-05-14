@@ -13,12 +13,14 @@ namespace LiveMessenger.Pages
 {
     public class PasswordCheckModel : PageModel
     {
+        public BsonDocument room { get; set; }
 
         public IActionResult OnGet()
         {
             if (!CheckCookie.checkUsername(Request)) return Redirect("ChangeUsername");
             String id = Request.Query["id"];
             if (!CheckRoom.byID(id)) return Redirect("/");
+            room = GetRoom.RetrieveOneRoom(id);
             return null;
         }
         public IActionResult OnPost(string password)
