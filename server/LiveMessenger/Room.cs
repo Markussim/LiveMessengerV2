@@ -24,7 +24,7 @@ namespace LiveMessenger
         private List<ClientConnection> clients = new List<ClientConnection>();
 
         //Functions that adds a ClientConnection to the List<>
-        public void Subscribe(ClientConnection client) 
+        public void Subscribe(ClientConnection client)
         {
             clients.Add(client);
         }
@@ -35,11 +35,14 @@ namespace LiveMessenger
         */
         public void Notify(string message, Room room)
         {
-            JObject json = JObject.Parse(message); //parses JSON String from Client to Object
-            MessageModel msgModel = new MessageModel(json.Property("user").Value.ToString(), json.Property("message").Value.ToString(), room.roomID); //creates message model with Object
-            msgModel.SaveMessage(); //saves model (the message) to MongoDB
-            string msgJson = JsonConvert.SerializeObject(msgModel, Formatting.Indented); //converts Model to JSON
-            clients.ForEach(client => client.sendMessage(msgJson)); //send JSON with WS to all clients
+            JObject json = JObject.Parse(message); //parses JSON String from Client to Object¨
+            if (!string.IsNullOrWhiteSpace(json.Property("message").Value.ToString()))
+            {
+                MessageModel msgModel = new MessageModel(json.Property("user").Value.ToString(), json.Property("message").Value.ToString(), room.roomID); //creates message model with Object
+                msgModel.SaveMessage(); //saves model (the message) to MongoDB
+                string msgJson = JsonConvert.SerializeObject(msgModel, Formatting.Indented); //converts Model to JSON
+                clients.ForEach(client => client.sendMessage(msgJson)); //send JSON with WS to all clients
+            }
         }
 
     }
