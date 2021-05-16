@@ -3,7 +3,7 @@ const id = urlParams.get("id");
 const wsString = "ws://localhost:5001/" + id;
 let socket = new WebSocket(wsString);
 let messageContainer = document.getElementById("messages");
-messageContainer.scrollTo(0,document.body.scrollHeight);
+messageContainer.scrollTo(0,messageContainer.scrollHeight);
 socket.onopen = function (event) {
 	console.log("Connected to chat!");
 };
@@ -26,7 +26,7 @@ socket.onmessage = function (event) {
     messageItem.appendChild(msgHtml)
     messageItem.appendChild(dateContainer)
     messageContainer.appendChild(messageItem)
-    messageContainer.scrollTo(0,document.body.scrollHeight);
+    messageContainer.scrollTo(0,messageContainer.scrollHeight);
 	renderTime();
 };
 
