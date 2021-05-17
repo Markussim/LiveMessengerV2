@@ -4,7 +4,10 @@
 <a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/flowchart.png" title="Flowchart"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/flowchart.png" alt="flowchart" width="45%"/></a>
 
 ## Klassdiagram
+### Tanken innan kodningen började
 <a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/Klassdiagram.png" title="Class diagram"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/Klassdiagram.png" alt="class diagram" width="100%"/></a>
+### Hur det faktiskt blev
+<a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/UppdateratKlassdiagram.png" title="Class diagram"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/UppdateratKlassdiagram.png" alt="class diagram" width="100%"/></a>
 
 ## Mockups
 ### Startsida
