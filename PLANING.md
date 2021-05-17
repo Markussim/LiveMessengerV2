@@ -7,7 +7,7 @@
 ### Tanken innan kodningen började
 <a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/Klassdiagram.png" title="Class diagram"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/Klassdiagram.png" alt="class diagram" width="100%"/></a>
 ### Hur det faktiskt blev
-<a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/UppdateratKlassdiagram.jpeg" title="Class diagram"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/UppdateratKlassdiagram.jpeg" alt="class diagram" width="100%"/></a>
+<a href="https://github.com/linusromlandSkola/LiveMessengerV2/blob/master/planingFiles/UppdateratKlassdiagram.jpg" title="Class diagram"><img src="https://raw.githubusercontent.com/linusromlandSkola/LiveMessengerV2/master/planingFiles/UppdateratKlassdiagram.jpg" alt="class diagram" width="100%"/></a>
 
 ## Mockups
 ### Startsida
