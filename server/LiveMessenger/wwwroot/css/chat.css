@@ -6,5 +6,5 @@
 	height: 73vh;
 }
 #messages {
-	scroll-behavior: smooth;
+	scroll-behavior: auto;
 }

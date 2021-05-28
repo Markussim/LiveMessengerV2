@@ -4,6 +4,7 @@ const wsString = "ws://localhost:5001/" + id;
 let socket = new WebSocket(wsString);
 let messageContainer = document.getElementById("messages");
 messageContainer.scrollTo(0,messageContainer.scrollHeight);
+messageContainer.style.scrollBehavior = "smooth";
 socket.onopen = function (event) {
 	console.log("Connected to chat!");
 };
